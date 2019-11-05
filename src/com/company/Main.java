@@ -16,8 +16,9 @@ public class Main {
         tree.insert(70);
         tree.insert(60);
         tree.insert(80);
-
         tree.inorder();
+
+
 
     }
 }

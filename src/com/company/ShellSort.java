@@ -1,3 +1,5 @@
+package com.company;
+
 public class ShellSort {
 
     public static void sort(int[] array) {
