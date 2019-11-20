@@ -1,4 +1,7 @@
-class CountingSort { 
+package com.company;
+
+
+class CountingSort {
     void sort(char arr[]) 
     { 
         int n = arr.length; 
