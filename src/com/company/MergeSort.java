@@ -73,4 +73,17 @@ public class MergeSort {
             merge(arr, l, m, r);
         }
     }
+    
+    public static void main(String[] args) {
+        
+        int[] array = { 4, 2, 10, 22 };
+        int n = array.length;
+        
+        MergeSort ob = new MergeSort();
+        ob.sort(array, 0, n);
+        
+        for (int i = 0; i < n; i++)
+            System.out.print(array[i] + " ");
+        
+    }
 }
