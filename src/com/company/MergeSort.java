@@ -80,7 +80,7 @@ public class MergeSort {
         int n = array.length;
         
         MergeSort ob = new MergeSort();
-        ob.sort(array, 0, n);
+        ob.sort(array, 0, n - 1);
         
         for (int i = 0; i < n; i++)
             System.out.print(array[i] + " ");
