@@ -1,4 +1,4 @@
-package com.company;
+package com.example;
 
 public class BinarySearchTree {
     /*Binary Search Tree, is a node-based binary tree data structure which has the following properties:
