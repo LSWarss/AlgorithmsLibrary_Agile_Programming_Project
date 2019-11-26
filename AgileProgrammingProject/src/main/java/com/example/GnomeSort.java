@@ -1,4 +1,4 @@
-package com.company;
+package com.example;
 
 public class GnomeSort {
     public void runSort(int[] array) {

@@ -1,4 +1,4 @@
-package com.company;
+package com.example;
 
 public class BubbleSort {
     static void Sort(int[] arr) {
