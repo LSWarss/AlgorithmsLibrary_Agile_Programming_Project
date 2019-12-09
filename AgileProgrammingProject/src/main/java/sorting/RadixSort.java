@@ -1,5 +1,4 @@
-package com.example.sorting;
-import java.io.*;
+package sorting;
 import java.util.*;
 
 public class RadixSort {

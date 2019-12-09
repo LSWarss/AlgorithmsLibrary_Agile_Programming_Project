@@ -1,4 +1,4 @@
-package com.example.sorting;
+package sorting;
 
 public class ShellSort {
 

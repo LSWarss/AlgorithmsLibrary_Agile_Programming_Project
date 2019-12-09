@@ -1,4 +1,4 @@
-package com.example.sorting;
+package sorting;
 
 
 class CountingSort {
@@ -16,8 +16,8 @@ class CountingSort {
             count[i] = 0; 
   
         // store count of each character 
-        for (int i = 0; i < n; ++i) 
-            ++count[arr[i]]; 
+        for (int i = 0; i < n; ++i)
+            ++count[arr[i]];
   
         // Change count[i] so that count[i] now contains actual 
         // position of this character in output array 
