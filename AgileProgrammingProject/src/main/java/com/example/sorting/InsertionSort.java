@@ -1,4 +1,4 @@
-package com.example;
+package com.example.sorting;
 
 class InsertionSort {
     void sort(int arr[]) {
