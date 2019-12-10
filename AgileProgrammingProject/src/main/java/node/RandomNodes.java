@@ -28,6 +28,6 @@ public class RandomNodes {
     private static void setNodeDim(Node node, int n) {
         node.setWidth(AnimationController.WINDOW_WIDTH / n -
                 AnimationController.GAP);
-        node.setHeight(((AnimationController.WINDOM_HEIGHT - AnimationController.BUTTONS_BOUNDRY) / n) * node.getValue());
+        node.setHeight(((AnimationController.WINDOW_HEIGHT - AnimationController.BUTTONS_BOUND) / n) * node.getValue());
     }
 }

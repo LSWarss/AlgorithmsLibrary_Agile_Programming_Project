@@ -12,6 +12,9 @@ public class quickSort extends AbstractSorting {
     private static final Color PIVOT_COLOR = Color.DARKMAGENTA;
     private ArrayList<Transition> transitions;
 
+    public quickSort(){
+        this.transitions = new ArrayList<>();
+    }
 
     public void sort(Node[] array, int low, int high){
         if(low < high) {
@@ -24,6 +27,7 @@ public class quickSort extends AbstractSorting {
 
     private  int partition(Node[] array, int low, int high){
         int i = low;
+
         transitions.add(colorCNode(array,PIVOT_COLOR,high));
 
         for (int j = low; j < high; j++) {

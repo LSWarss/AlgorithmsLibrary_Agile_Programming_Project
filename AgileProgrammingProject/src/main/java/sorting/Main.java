@@ -15,7 +15,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(animationController,
                 AnimationController.WINDOW_WIDTH,
-                AnimationController.WINDOM_HEIGHT);
+                AnimationController.WINDOW_HEIGHT);
 
         stage.setTitle("Algorithms Sorting Visualizer");
         stage.setScene(scene);

@@ -21,9 +21,9 @@ import java.util.List;
 public class AnimationController extends BorderPane {
 
     public static final int WINDOW_WIDTH = 800;
-    public static final int WINDOM_HEIGHT = 500;
+    public static final int WINDOW_HEIGHT = 500;
     public static final int GAP = 10;
-    public static final int BUTTONS_BOUNDRY = 100;
+    public static final int BUTTONS_BOUND = 100;
 
     public static int NR_NODES = 40;
 
