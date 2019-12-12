@@ -65,9 +65,9 @@ public class AnimationController extends BorderPane {
         List<AbstractSorting> abstractSortList = new ArrayList<>();
 //        abstractSortList.add(new BubbleSort());
 //        abstractSortList.add(new InsertionSort());
-//        abstractSortList.add(new MergeSort());
+        abstractSortList.add(new MergeSort());
         abstractSortList.add(new quickSort());
-//        abstractSortList.add(new HeapSort());
+        abstractSortList.add(new HeapSort());
 
         window.getChildren().addAll(Arrays.asList(nodes));
 

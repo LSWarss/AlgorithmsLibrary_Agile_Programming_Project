@@ -1,89 +1,104 @@
 package sorting;
 
-public class MergeSort {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javafx.animation.ParallelTransition;
+import javafx.animation.Transition;
+import node.Node;
 
-    public void merge(int[] arr, int l, int m, int r)
+public class MergeSort extends AbstractSorting {
+
+    private Node[] tmp;
+    
+    private ArrayList<Transition> merge(Node[] arr, int l, int m, int r)
     {
-        //find size of subbarrays to be merged
-        int sizeLeft = m - l + 1;
-        int sizeRight = r - m;
-        
-        //create temp subarrays
-        int[] tempLeft = new int[sizeLeft];
-        int[] tempRight = new int[sizeRight];
-        
-        //copy data to temp arrays
-        for (int i = 0; i < sizeLeft; ++i)
-        {
-            tempLeft[i] = arr[l + i];
-        }
-        for (int j = 0; j < sizeRight; ++j)
-        {
-            tempRight[j] = arr[m + 1 + j];
-        }
+	ArrayList<Transition> transitions = new ArrayList<>();
+	List<Node> tmpList = new ArrayList<>();
+	
+	for (int i = l; i <= r; i++)
+	{
+	    tmp[i] = arr[i];
+	    tmpList.add(tmp[i]);
+	}
+	
+	int i = l;
+	int j = m + 1;
+	int k = l;
         
         /* merge */
-        int initialIndexLeft = 0;
-        int initialIndexRight = 0;
-        
-        int initialIndexMerged = l;
-        
-        while (initialIndexLeft < sizeLeft && initialIndexRight < sizeRight)
-        {
-            if (tempLeft[initialIndexLeft] <= tempRight[initialIndexRight])
-            {
-                arr[initialIndexMerged] = tempLeft[initialIndexLeft];
-                initialIndexLeft++;
-            }
-            else
-            {
-                arr[initialIndexMerged] = tempRight[initialIndexRight];
-                initialIndexRight++;
-            }
-            initialIndexMerged++;
-        }
+        while (i <= m && j <= r)
+	{
+	    if (tmp[i].getValue() <= tmp[j].getValue())
+	    {
+		arr[k++] = tmp[i++];
+	    }
+	    else
+	    {
+		arr[k++] = tmp[j++];
+	    }
+	}
         
         //copy remaining
-        while (initialIndexLeft < sizeLeft)
-        {
-            arr[initialIndexMerged] = tempLeft[initialIndexLeft];
-            initialIndexLeft++;
-            initialIndexMerged++;
-        }
-        while (initialIndexRight < sizeRight)
-        {
-            arr[initialIndexMerged] = tempRight[initialIndexRight];
-            initialIndexRight++;
-            initialIndexMerged++;
-        }
+        while (i <= m)
+	{
+	    arr[k++] = tmp[i++];
+	}
+        while (j <= r)
+	{
+	    arr[k++] = tmp[j++];
+	}
+	
+	transitions.add(colorCNode(tmpList, SELECT_COLOR));
+	
+	ParallelTransition pt = new ParallelTransition();
+	
+	for (int x = l; x <= r; x++)
+	{
+	    for (int y = l; y <= r; y++)
+	    {
+		if (tmp[x].equals(arr[y]))
+		{
+		    pt.getChildren().add(tmp[x].moveX(DX * (y - x)));
+		}
+	    }
+	}
+	
+	transitions.add(pt);
+	transitions.add(colorCNode(tmpList, SELECT_COLOR));
+	
+	return transitions;
     }
     
-    public void sort(int[] arr, int l, int r)
+    private ArrayList<Transition> sort(Node[] arr, int l, int r)
     {
+	ArrayList<Transition> transitions = new ArrayList<>();
+	
         if (l < r)
         {
             //middle point
             int m = (l + r)/2;
             
             //sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m+1, r);
+            transitions.addAll(sort(arr, l, m));
+            transitions.addAll(sort(arr, m + 1, r));
             
             //merge sorted halves
-            merge(arr, l, m, r);
+            transitions.addAll(merge(arr, l, m, r));
         }
+	
+	return transitions;
     }
     
-    public static void main(String[] args) {
-        
-        int[] array = { 4, 2, 10, 22 };
-        int n = array.length;
-        
-        MergeSort ob = new MergeSort();
-        ob.sort(array, 0, n - 1);
-        
-        for (int i = 0; i < n; i++)
-            System.out.print(array[i] + " ");
-        
+    @Override
+    public ArrayList<Transition> startSort(Node[] array) {
+	ArrayList<Transition> transitions = new ArrayList<>();
+	this.tmp = new Node[array.length];
+	
+        transitions.addAll(sort(array, 0, array.length - 1));
+        transitions.add(colorCNode(Arrays.asList(array), SORTED_COLOR));
+	
+        return transitions;
     }
+    
 }
