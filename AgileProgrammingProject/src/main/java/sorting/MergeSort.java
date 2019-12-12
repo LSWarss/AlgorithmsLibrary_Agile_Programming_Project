@@ -101,4 +101,4 @@ public class MergeSort extends AbstractSorting {
         return transitions;
     }
     
-    }
+}
