@@ -25,24 +25,23 @@ public class quickSort extends AbstractSorting {
         }
     } //Description: Main function for implementing quickSort()
 
-    private  int partition(Node[] array, int low, int high){
+    private int partition(Node[] array, int low, int high){
         int i = low;
 
-        transitions.add(colorCNode(array,PIVOT_COLOR,high));
+        transitions.add(colorCNode(array,PIVOT_COLOR,high)); // we change the color of the current node to the pivot color
 
         for (int j = low; j < high; j++) {
             transitions.add(colorCNode(array, SELECT_COLOR, j));
             if (array[j].getValue() < array[high].getValue()) {
-                transitions.add(swap(array, i, j));
-                transitions.add(colorCNode(array, START_COLOR, i));
+                transitions.add(swap(array, i, j)); //this swaps the nodes, the node on place i to the node on place j
+                transitions.add(colorCNode(array, START_COLOR, i)); //changes the color of the node i to start_color
                 i++;
             } else {
-                transitions.add(colorCNode(array, START_COLOR, j));
+                transitions.add(colorCNode(array, START_COLOR, j)); //changes the color of the node i to start_color
             }
         }
         transitions.add(swap(array, i, high));
         transitions.add(colorCNode(array, START_COLOR, i));
-
         return i;
 
     } //Description: Function takes the last element as pivot, then it places it in sorted array, and then places all smaller then the pivot on the left of the pivot and greater elements on right from the pivot.

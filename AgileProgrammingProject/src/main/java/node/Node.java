@@ -10,13 +10,13 @@ public class Node extends Rectangle {
 
     public Node(int value){this.value = value;}
 
-    public int getValue(){return this.value;}
+    public int getValue(){return this.value;} //gets the value of node
 
     public TranslateTransition moveX(int x){
         TranslateTransition tTransition = new TranslateTransition();
-        tTransition.setNode(this);
-        tTransition.setDuration(Duration.millis(100));
-        tTransition.setByX(x);
+        tTransition.setNode(this); //sets the node of translateTransitions
+        tTransition.setDuration(Duration.millis(100)); //sets the duration of change
+        tTransition.setByX(x); //moves the node to the x place
 
         return tTransition;
     }
