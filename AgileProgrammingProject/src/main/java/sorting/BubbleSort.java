@@ -16,10 +16,4 @@ public class BubbleSort {
             }
         }
     }
-
-    public static void main(String[] args) {
-        int[] testArray = {10, 12, -4 , 5 , 20, 30};
-        Sort(testArray);
-        Utility.PrintArray(testArray);
-    }
 }
