@@ -59,7 +59,10 @@ public class AnimationController extends BorderPane {
 
         buttons.getChildren().add(sortingButton);
         buttons.getChildren().add(randomButton);
+        buttons.getChildren().add(stopButton);
         buttons.getChildren().add(abstractSortingChoiceBox);
+        buttons.getChildren().add(bstButton);
+
 
         buttons.setAlignment(Pos.CENTER);
 
