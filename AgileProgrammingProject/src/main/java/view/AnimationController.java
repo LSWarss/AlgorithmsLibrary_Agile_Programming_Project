@@ -52,6 +52,8 @@ public class AnimationController extends BorderPane {
         this.sortingButton = new Button("Sort");
         this.randomButton = new Button ("Randomise");
         this.abstractSortingChoiceBox = new ChoiceBox<>();
+        this.bstButton = new Button("BST");
+        this.stopButton = new Button("Stop");
 
         this.nodes = RandomNodes.randomNodes(NR_NODES);
 
@@ -68,7 +70,7 @@ public class AnimationController extends BorderPane {
 
         List<AbstractSorting> abstractSortList = new ArrayList<>();
 //        abstractSortList.add(new BubbleSort());
-//        abstractSortList.add(new InsertionSort());
+        abstractSortList.add(new InsertionSort());
         abstractSortList.add(new MergeSort());
         abstractSortList.add(new quickSort());
         abstractSortList.add(new HeapSort());

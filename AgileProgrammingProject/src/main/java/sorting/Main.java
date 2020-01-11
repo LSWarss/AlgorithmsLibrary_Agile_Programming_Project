@@ -8,7 +8,7 @@ import view.AnimationController;
 public class Main extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage){
 
         AnimationController animationController = new AnimationController();
         animationController.setStyle("-fx-background-color: #1c1c1c");
@@ -22,4 +22,9 @@ public class Main extends Application {
         stage.show();
 
     }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
 }
+
