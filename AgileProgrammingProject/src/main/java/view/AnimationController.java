@@ -20,21 +20,25 @@ import java.util.List;
 
 public class AnimationController extends BorderPane {
 
+    // == Configuration of spacing and look of the animation window
     public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEIGHT = 500;
     public static final int GAP = 10;
     public static final int BUTTONS_BOUND = 100;
 
-    public static int NR_NODES = 40;
+    public static int NR_NODES = 40; //number of nodes displayed
 
     private static AbstractSorting abstractSort;
 
+    // == Grid and alignment of elements ==
     private Pane window;
     private HBox buttons;
-
+    // == Buttons==
     private Button sortingButton;
     private Button randomButton;
     private ChoiceBox<AbstractSorting> abstractSortingChoiceBox;
+    private Button bstButton;
+    private Button stopButton;
 
     private Node[] nodes;
 
@@ -101,6 +105,16 @@ public class AnimationController extends BorderPane {
         abstractSortingChoiceBox.setItems(FXCollections.observableArrayList(
                 abstractSortList
         ));
+
+        stopButton.setOnAction(event -> {
+            window.getChildren().clear();
+            sortingButton.setDisable(false);
+            randomButton.setDisable(false);
+        });  // Stop button implementation for interface
+
+        bstButton.setOnAction(event -> {
+
+        });
 
         abstractSortingChoiceBox.getSelectionModel().select(5);
 
