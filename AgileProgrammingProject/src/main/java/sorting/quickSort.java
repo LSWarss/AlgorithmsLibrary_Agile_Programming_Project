@@ -23,7 +23,7 @@ public class quickSort extends AbstractSorting {
             sort(array, low, p -1);
             sort(array, p+1, high);
         }
-    } //Description: Main function for implementing quickSort()
+    } //Description: sorting.Main function for implementing quickSort()
 
     private int partition(Node[] array, int low, int high){
         int i = low;

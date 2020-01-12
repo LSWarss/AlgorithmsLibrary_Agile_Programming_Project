@@ -6,7 +6,7 @@ import javafx.animation.Transition;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import node.Node;
-import view.AnimationController;
+import contollers.AnimationController;
 
 
 import java.util.ArrayList;

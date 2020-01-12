@@ -1,7 +1,7 @@
 package node;
 
 import javafx.scene.paint.Color;
-import view.AnimationController;
+import contollers.AnimationController;
 
 import java.util.Random;
 
