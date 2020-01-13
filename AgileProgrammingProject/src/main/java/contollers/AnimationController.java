@@ -1,13 +1,10 @@
 package contollers;
 
-import bst.BstMain;
+import bst.App;
 import javafx.animation.SequentialTransition;
 import javafx.collections.FXCollections;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.BorderPane;
@@ -124,7 +121,13 @@ public class AnimationController extends BorderPane {
         });  // Stop button implementation for interface
 
         bstButton.setOnAction(event -> {
-
+            Stage stage = new Stage();
+            App bst = new App();
+            try {
+                bst.start(stage);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         abstractSortingChoiceBox.getSelectionModel().select(5);

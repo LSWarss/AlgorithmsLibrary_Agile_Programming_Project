@@ -8,6 +8,7 @@ import contollers.AnimationController;
 public class Main extends Application {
 
     @Override
+    
     public void start(Stage stage){
 
         AnimationController animationController = new AnimationController();
