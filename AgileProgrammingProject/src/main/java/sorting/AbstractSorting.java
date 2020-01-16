@@ -49,7 +49,32 @@ public abstract class AbstractSorting {
 
         return pt;
     }
+    ParallelTransition colorFNode(Node[] nodes, Color color, int...a) { //Faster swaps for longer animations
+        ParallelTransition pt = new ParallelTransition();
 
+        for (int i = 0; i < a.length; i++) {
+            FillTransition ft = new FillTransition();
+            ft.setShape(nodes[a[i]]);
+            ft.setToValue(color);
+            ft.setDuration(Duration.millis(10));
+            pt.getChildren().add(ft);
+        }
+        return pt;
+    }
+
+    ParallelTransition colorFNode(List<Node> nodeList, Color color) { //Faster swaps for longer animations
+        ParallelTransition pt = new ParallelTransition();
+
+        for (Node c : nodeList) {
+            FillTransition ft = new FillTransition();
+            ft.setShape(c);
+            ft.setToValue(color);
+            ft.setDuration(Duration.millis(10));
+            pt.getChildren().add(ft);
+        }
+
+        return pt;
+    }
     ParallelTransition swap(Node[] nodes, int i, int j) {
         ParallelTransition pt = new ParallelTransition();
 
